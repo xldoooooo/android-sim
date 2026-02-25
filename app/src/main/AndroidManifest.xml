@@ -3,9 +3,10 @@
     <!-- Required for writing to external storage on API ≤28; ignored on API 29+ (scoped storage) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
     <application
+        android:name=".SimApplication"
         android:allowBackup="true"
         android:label="AndroidSim"
-        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
