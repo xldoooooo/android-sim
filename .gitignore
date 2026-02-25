@@ -1,0 +1,10 @@
+# Gradle files
+.gradle/
+app/build/
+gradle/gradle-daemon-jvm.properties
+
+# Local properties
+local.properties
+
+# IDE files
+.idea/
