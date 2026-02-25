@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.chaquo.python")
 }
 
 android {
@@ -12,8 +13,16 @@ android {
         applicationId = "com.xldoooooo.androidsim"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
+
+        ndk {
+            abiFilters += listOf("arm64-v8a", "x86_64")
+        }
+
+        python {
+            version = "3.11"
+        }
     }
 
     buildTypes {
@@ -45,4 +54,5 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("com.chaquo.python:gradle:16.0.0")
 }

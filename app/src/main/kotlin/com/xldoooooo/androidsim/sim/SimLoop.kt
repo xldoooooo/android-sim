@@ -11,7 +11,8 @@ class SimLoop(
     private val dt:         Double  = 0.005,
     private val useRK45:    Boolean = false,
     private val logger:     CsvLogger,
-    private val onLogLine:  ((String) -> Unit)? = null
+    private val onLogLine:  ((String) -> Unit)? = null,
+    private val onDone:     (() -> Unit)? = null
 ) {
     private var job: Job? = null
 
@@ -44,6 +45,7 @@ class SimLoop(
                 onLogLine?.let { withContext(Dispatchers.Main) { it(line) } }
             }
             logger.close()
+            onDone?.let { withContext(Dispatchers.Main) { it() } }
         }
     }
 
